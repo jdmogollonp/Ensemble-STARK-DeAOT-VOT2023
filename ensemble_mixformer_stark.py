@@ -4,15 +4,15 @@ import numpy as np
 import sys
 
 # project path change accordingly
-prj_path = '/Stark/'
+prj_path = './Stark/'
 sys.path.append(prj_path)
 
 # project path change accordingly
-mixformer_path = '/MixFormer/'
+mixformer_path = './MixFormer/'
 sys.path.append(mixformer_path)
 
-from lib.test.evaluation import TrackerStark
-from lib_mixformer.test.evaluation import TrackerMixFormer
+from lib.test.evaluation.tracker import Tracker as TrackerStark
+from lib_mixformer.test.evaluation.tracker import Tracker as TrackerMixFormer
 from vot_data_preprocessing import _mask_to_bbox
 from segment_anything import sam_model_registry, SamPredictor
 
@@ -53,7 +53,7 @@ class starkTracker(object):
 
 
 # path to SAM weights
-sam_checkpoint = "/MixFormer/sam_weights/sam_vit_h_4b8939.pth"
+sam_checkpoint = "./MixFormer/sam_weights/sam_vit_h_4b8939.pth"
 model_type = "vit_h"
 device = "cuda"
 sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
